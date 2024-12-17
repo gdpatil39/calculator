@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .calculator {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+        .calculator h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .calculator input[type="text"], .calculator input[type="number"] {
+            width: 90%;
+            height: 40px;
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-align: right;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .calculator button {
+            width: 22%;
+            height: 50px;
+            margin: 3px;
+            font-size: 18px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        .calculator button:hover {
+            background-color: #0056b3;
+        }
+        .calculator .clear {
+            background-color: #f44336;
+        }
+        .calculator .clear:hover {
+            background-color: #c12e2a;
+        }
+        .calculator input[type="reset"] {
+            width: 90%;
+            height: 40px;
+            font-size: 18px;
+            margin-top: 10px;
+            background-color: #ffc107;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .calculator input[type="reset"]:hover {
+            background-color: #e0a800;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator">
+    <h1>Calculator</h1>
+    <form>
+        <input type="number" name="input1" id="input1" placeholder="Enter first number"/>
+        <input type="number" name="input2" id="input2" placeholder="Enter second number"/>
+        <input type="text" name="value" id="value" readonly placeholder="Result"/>
+        <br>
+        <button type="button" class="add-button" onclick="addNewRow()">Add Row</button>
+        <br>
+        <input type="reset" value="Reset">
+    </form>
+</div>
+
+<script>
+    let addNewRow = () => {
+        const inputRow = document.createElement('input');
+        inputRow.type = 'text';
+        inputRow.name = 'newRow';
+        inputRow.id = 'newRow';
+        inputRow.value = 'test';
+        inputRow.readOnly = true;
+        inputRow.style.marginTop = '10px';
+
+        const br = document.createElement('br');
+
+        const divSelector = document.querySelector('.calculator form');
+        divSelector.appendChild(inputRow);
+        divSelector.appendChild(br);
+    };
+</script>
+
+</body>
+</html>
